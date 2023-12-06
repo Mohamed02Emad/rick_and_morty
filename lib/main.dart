@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty/app_router.dart';
-import 'package:rick_and_morty/presentation/screens/characters_screen/characters_screen.dart';
+import 'package:rick_and_morty/utils/my_colors.dart';
 
 void main() {
   runApp(
@@ -18,6 +18,13 @@ class RickAndMortyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        // appBarTheme: AppBarTheme(
+        //   backgroundColor: MyColors.green,
+        // ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: appRouter.generateRoute,
     );

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:rick_and_morty/data/models/character.dart';
 import 'package:rick_and_morty/utils/api_constants.dart';
 import 'package:rick_and_morty/utils/constants.dart';
 
@@ -18,12 +19,12 @@ class CharactersService{
     dio = Dio(options);
    }
 
-   Future<dynamic?> getAllCharacters() async {
+   Future<CharactersResponse?> getAllCharacters() async {
     try {
-      Response response = await dio.get(CHARACTERS_END_POINT);
-      return response.data;
+      final response = await dio.get(CHARACTERS_END_POINT);
+      return CharactersResponse.fromJson(response.data as Map<String, dynamic>);
     } catch (e){
-      print("$DEBUG_TAG getting characters : ${e.toString()}");
+      print("$DEBUG_TAG getting characters crash: ${e.toString()}");
       return null;
     }
    }

@@ -29,9 +29,7 @@ class AppRouter {
       case Constants.CHARACTER_DETAILS_SCREEN:
         return MaterialPageRoute(
             builder: (_) => const CharacterDetailsScreen());
-      // case '/':
-      // case '/':
-      // case '/':
+
     }
   }
 }
