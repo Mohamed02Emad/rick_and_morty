@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty/app_router.dart';
+import 'package:rick_and_morty/presentation/screens/characters_screen/characters_screen.dart';
 
 void main() {
   runApp(
