@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:rick_and_morty/data/models/character.dart';
 import 'package:rick_and_morty/utils/api_constants.dart';
 import 'package:rick_and_morty/utils/constants.dart';
 

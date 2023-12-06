@@ -30,8 +30,9 @@ class CharacterWidget extends StatelessWidget {
                   bottomLeft: Radius.circular(12),
                   bottomRight: Radius.circular(12),
                 ),
-                child: Image.network(
-                  character.image!,
+                child: FadeInImage.assetNetwork(
+                  image : character.image!,
+                  placeholder: "assets/images/loading.gif",
                   fit: BoxFit.cover,
                 ),
               ),
