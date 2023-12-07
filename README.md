@@ -1,16 +1,6 @@
-# rick_and_morty
+## Video
 
-simple proje
 
-## Getting Started
+https://github.com/Mohamed02Emad/rick_and_morty/assets/81470639/8b9526d9-009a-4e30-951a-61ef65aaddf6
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
