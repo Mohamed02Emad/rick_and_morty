@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty/business_logic/cubit/characters_cubit.dart';
 import 'package:rick_and_morty/data/api/characters_service.dart';
+import 'package:rick_and_morty/data/models/character.dart';
 import 'package:rick_and_morty/data/repository/characters_repository/CharactersRepository.dart';
 import 'package:rick_and_morty/presentation/screens/character_details_screen/character_details_screen.dart';
 import 'package:rick_and_morty/presentation/screens/characters_screen/characters_screen.dart';
@@ -27,8 +28,9 @@ class AppRouter {
           ),
         );
       case Constants.CHARACTER_DETAILS_SCREEN:
+        final selectedCharacter = settings.arguments as Character;
         return MaterialPageRoute(
-            builder: (_) => const CharacterDetailsScreen());
+            builder: (_) =>  CharacterDetailsScreen(character: selectedCharacter,));
 
     }
   }

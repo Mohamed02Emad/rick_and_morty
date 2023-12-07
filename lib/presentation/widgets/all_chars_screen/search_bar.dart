@@ -3,32 +3,39 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class SearchBarWidget extends StatelessWidget {
-  final TextEditingController controller = TextEditingController();
+  late TextEditingController controller;
+
   final Function onChange;
   Timer? _debounceTimer;
   final _searchTimeDelayMillis = const Duration(milliseconds: 300);
-  SearchBarWidget({required this.onChange, super.key});
+
+  SearchBarWidget(
+      {TextEditingController? controller, required this.onChange, super.key}) {
+    controller == null
+        ? this.controller = TextEditingController()
+        : this.controller = controller;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Row(
-          children: [
-            Expanded(
-                child: TextField(
-                  maxLines: 1,
-                  controller: controller,
-                  cursorColor: Colors.white,
-                  decoration: InputDecoration(
-                    hintText: "Search...",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide.none,
-                    ),
-                    hintStyle: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              maxLines: 1,
+              controller: controller,
+              cursorColor: Colors.white,
+              decoration: InputDecoration(
+                hintText: "Search...",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+                ),
+                hintStyle: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
                   ),
                   style: const TextStyle(
                     color: Colors.white,

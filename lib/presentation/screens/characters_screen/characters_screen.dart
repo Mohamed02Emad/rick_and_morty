@@ -15,7 +15,7 @@ class CharactersScreen extends StatefulWidget {
 
 class _CharactersScreenState extends State<CharactersScreen> {
   bool _isSearching = false;
-
+  final controller = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -29,7 +29,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
         backgroundColor: Colors.green,
         centerTitle: true,
         title: _isSearching
-            ? SearchBarWidget(onChange: (String text) => BlocProvider.of<CharactersCubit>(context).getAllCharacters(text))
+            ? SearchBarWidget(controller: controller,onChange: (String text ,) => BlocProvider.of<CharactersCubit>(context).getAllCharacters(text))
             : const Text(
                 "Characters",
                 style: TextStyle(color: Colors.white),
@@ -41,6 +41,8 @@ class _CharactersScreenState extends State<CharactersScreen> {
               setState(() {
                 _isSearching = false;
               });
+              controller.text = "";
+              BlocProvider.of<CharactersCubit>(context).getAllCharacters(null);
             }, icon: const Icon(Icons.arrow_back_rounded,color: Colors.white,))
             : const SizedBox(width: 0,height: 0,)
         ,
@@ -48,7 +50,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
           _isSearching ?
           IconButton(onPressed: (){
             setState(() {
-              _isSearching = false;
+              controller.text = "";
               BlocProvider.of<CharactersCubit>(context).getAllCharacters(null);
             });
           }, icon: const Icon(Icons.cancel_outlined,color: Colors.white,))
